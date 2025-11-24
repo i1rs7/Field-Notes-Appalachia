@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://eavpqdpoohgc"]
+
+[ext_resource type="PackedScene" uid="uid://uhthjyfs5fjr" path="res://nature assets/Tree_4_Big.gltf" id="1_e2cyi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8muuf"]
+size = Vector3(0.5, 8.1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3v0rg"]
+size = Vector3(1.9, 2.2, 2)
+
+[node name="Tree 4 Big" type="StaticBody3D"]
+
+[node name="Tree_4_Big" parent="." instance=ExtResource("1_e2cyi")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+shape = SubResource("BoxShape3D_8muuf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0500002, 3.5, -0.49999997)
+shape = SubResource("BoxShape3D_3v0rg")
