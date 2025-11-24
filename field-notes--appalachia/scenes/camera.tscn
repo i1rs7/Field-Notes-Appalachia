@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wwtntqc4krut"]
+
+[ext_resource type="PackedScene" uid="uid://bd68a1twpplqi" path="res://assets/camera/camera_canon_eos_400d.glb" id="1_u5kg4"]
+
+[node name="Camera" type="MeshInstance3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_u5kg4")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://eavpqdpoohgc"]
 
-[ext_resource type="PackedScene" uid="uid://uhthjyfs5fjr" path="res://nature assets/Tree_4_Big.gltf" id="1_e2cyi"]
+[ext_resource type="PackedScene" uid="uid://uhthjyfs5fjr" path="res://assets/kaykit nature/Tree_4_Big.gltf" id="1_e2cyi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8muuf"]
 size = Vector3(0.5, 8.1, 0.5)
