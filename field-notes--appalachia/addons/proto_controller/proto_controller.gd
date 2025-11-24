@@ -44,6 +44,7 @@ extends CharacterBody3D
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+var camera_open : bool = false
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
@@ -75,6 +76,17 @@ func _unhandled_input(event: InputEvent) -> void:
 			enable_freefly()
 		else:
 			disable_freefly()
+			
+	#Toggle Camera
+	if Input.is_action_just_pressed("toggle_camera"):
+		if camera_open:
+			$Head/AnimationPlayer.play("close camera")
+			print("closing camera")
+			camera_open = false
+		else:
+			$Head/AnimationPlayer.play("open camera")
+			print("opening camera")
+			camera_open = true
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -150,6 +162,8 @@ func capture_mouse():
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+	
+	
 
 
 ## Checks if some Input Actions haven't been created.
