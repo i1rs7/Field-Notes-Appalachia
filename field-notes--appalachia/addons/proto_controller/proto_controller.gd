@@ -138,12 +138,7 @@ func _physics_process(delta: float) -> void:
 	
 func _process(delta: float) -> void:
 	digicam_cam.transform = digicam_pos.global_transform
-	#digicam_cam.global_position = lens.global_position 
-	#if camera_open:
-	#	digicam_cam.global_rotation = lens.global_rotation + Vector3(0, 180, 0)
-	#else: 
-	#	digicam_cam.global_rotation = Vector3(47.3, 356.6, -7.1)
-
+	
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
 ## Modifies look_rotation based on rot_input, then resets basis and rotates by look_rotation.
