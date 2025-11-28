@@ -1,0 +1,148 @@
+[gd_scene load_steps=8 format=3 uid="uid://d18swyctx8m84"]
+
+[sub_resource type="Gradient" id="Gradient_wb8dd"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yekeh"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xmxfg"]
+noise = SubResource("FastNoiseLite_yekeh")
+color_ramp = SubResource("Gradient_wb8dd")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_n70w7"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_xmxfg"),
+&"projection_threshold": 0.8
+}
+show_checkered = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7h5ut"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_mrcr7"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_7h5ut")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_twben"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_mrcr7")])
+
+[node name="proto_environment" type="Node3D"]
+
+[node name="player" type="CSGBox3D" parent="."]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, -60.264675, 2.2026072, 34.941994)
+use_collision = true
+size = Vector3(0.3, 1.2, 0.2)
+
+[node name="boxes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.3, 72.1)
+
+[node name="floor" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, -17.694672, -9.457393, -20.278004)
+use_collision = true
+size = Vector3(167.8, 1, 130.6)
+
+[node name="peak" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 28.835331, 51.48261, -3.5580044)
+use_collision = true
+size = Vector3(12.900001, 38.8, 17.9)
+
+[node name="peak12" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 28.835331, 26.84261, 82.462)
+use_collision = true
+size = Vector3(12.900001, 38.8, 17.9)
+
+[node name="peak4" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.2, 0, 0, 0, -9.616505e-08, -2.2, 0, 2.2, -9.616505e-08, 29.93533, 2.4226031, -10.158009)
+use_collision = true
+size = Vector3(22.7, 38.8, 17.9)
+
+[node name="peak8" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.2, 0, 0, 0, -1.4141328, -1.6852978, 0, 1.6852978, -1.4141328, 37.85533, 20.022602, -25.778006)
+use_collision = true
+size = Vector3(15.900001, 18.2, 17.9)
+
+[node name="peak11" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.2, 0, 0, 0, -2.0673237, -0.75244427, 0, 0.75244427, -2.0673237, 29.715332, 60.47237, -0.312685)
+use_collision = true
+size = Vector3(12.900001, 18.2, 17.9)
+
+[node name="peak6" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(1.4141328, -1.6852978, 0, -7.3666705e-08, -6.181371e-08, -2.2, 1.6852978, 1.4141328, -9.616505e-08, 10.040628, 13.642607, -102.693794)
+use_collision = true
+size = Vector3(22.7, 27.1, 35.9)
+
+[node name="peak7" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(1.4141328, -1.6852978, 0, -7.3666705e-08, -6.181371e-08, -2.2, 1.6852978, 1.4141328, -9.616505e-08, 32.54974, -17.377403, 48.123)
+use_collision = true
+size = Vector3(22.7, 38.8, 17.9)
+
+[node name="peak10" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(-2.0359163, -0.75244445, -0.358987, 0.38202596, 8.195639e-08, -2.166577, 0.74101305, -2.0673237, 0.1306605, -4.2862787, -15.397403, 92.305916)
+use_collision = true
+size = Vector3(22.7, 5.2000003, 17.9)
+
+[node name="peak5" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.2, 0, 0, 0, -9.616505e-08, -2.2, 0, 2.2, -9.616505e-08, 27.075329, 9.352609, -60.978004)
+use_collision = true
+size = Vector3(22.7, 12, 24.2)
+
+[node name="peak2" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, -47.724667, -10.997394, 31.421999)
+use_collision = true
+size = Vector3(7.7000003, 3.8, 16.5)
+
+[node name="peak3" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(2.166577, 0, 0.382026, 0, 2.2, 0, -0.382026, 0, 2.166577, -55.587658, -6.3773947, 22.974335)
+use_collision = true
+size = Vector3(3.3, 3.8, 5.2000003)
+
+[node name="peak9" type="CSGBox3D" parent="boxes"]
+transform = Transform3D(1.4141328, 0, 1.6852977, 0, 2.2, 0, -1.6852977, 0, 1.4141328, -46.50324, -6.3773947, 39.02062)
+use_collision = true
+size = Vector3(3.3, 3.8, 5.2000003)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://simple_tdd"
+material = SubResource("Terrain3DMaterial_n70w7")
+assets = SubResource("Terrain3DAssets_twben")
+show_checkered = true
+top_level = true
+visible = false
+metadata/_edit_lock_ = true
