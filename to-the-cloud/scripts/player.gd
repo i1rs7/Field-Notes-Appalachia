@@ -11,6 +11,7 @@ extends Node3D
 @onready var sub_viewport: SubViewport = $third_p_controller/Robot/Head/SubViewport
 @onready var pic_view_timer: Timer = $third_p_controller/CamUI/PicView
 @onready var photos_left_label: Label = $third_p_controller/CamUI/PhotosLeft
+@onready var general_ui: Control = $third_p_controller/GeneralUI
 
 @export var tilt_upper_limit := PI / 4.0
 @export var tilt_lower_limit := -PI / 7.0
@@ -124,6 +125,7 @@ func enter_first_person():
 	cam_state = Cam_States.FIRST_PERSON
 	robo_cam.make_current()
 	cam_ui.show()
+	general_ui.hide()
 	robot.hide()
 	Globals.can_move = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -134,6 +136,7 @@ func enter_third_person():
 	cam_state = Cam_States.THIRD_PERSON
 	tp_cam.make_current()
 	cam_ui.hide()
+	general_ui.show()
 	robot.show()
 	Globals.can_move = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
